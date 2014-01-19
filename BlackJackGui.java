@@ -43,7 +43,6 @@ public class BlackJackGui extends JPanel implements ActionListener{
   		stayButton = new JButton("STAY");
   		stayButton.addActionListener(this);
 
-
 		dealerCards.add(getRandomCard());
 		deckPanel.add(new JLabel(new ImageIcon(cardBack)));
 		leftPlayerCards.add(getRandomCard());
