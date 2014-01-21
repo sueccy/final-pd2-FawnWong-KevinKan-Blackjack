@@ -8,7 +8,7 @@ import javax.imageio.*;
 
 public class BlackJackGui extends JPanel implements ActionListener{
 	protected JFrame frame = new JFrame();
-	protected Container cPane = frame.getContentPane();
+    protected Container cPane = frame.getContentPane();
 	protected JPanel center = new JPanel();
 	protected JPanel dealerCards = new JPanel(new GridBagLayout());
 	protected JPanel leftPlayerCards = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
@@ -34,7 +34,7 @@ public class BlackJackGui extends JPanel implements ActionListener{
 			rightPlayerCards.add(getRandomCard());
 			leftPlayerCards.add(getRandomCard());
 			dealerCards.add(getRandomCard());
-			cPane.revalidate();
+			cPane.validate();
 			cPane.repaint();
 		}
 		if (e.getSource() == hitButton){
@@ -42,7 +42,7 @@ public class BlackJackGui extends JPanel implements ActionListener{
 			dealerCards.add(getRandomCard());
 			rightPlayerCards.add(getRandomCard());
 			leftPlayerCards.add(getRandomCard());
-			cPane.revalidate();
+			cPane.validate();
 			cPane.repaint();
 		}
 	}
