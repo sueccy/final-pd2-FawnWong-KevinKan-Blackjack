@@ -8,6 +8,7 @@ import javax.imageio.*;
 
 public class BlackJackGui extends JPanel implements ActionListener{
 	protected JFrame frame = new JFrame();
+	protected Game game;
 	protected Container cPane = frame.getContentPane();
 	protected JPanel center = new JPanel();
 	protected JPanel dealerCards = new JPanel(new GridBagLayout());
@@ -47,7 +48,8 @@ public class BlackJackGui extends JPanel implements ActionListener{
 		}
 	}
 
-	public BlackJackGui() {
+	public BlackJackGui(Game g) {
+		game = g;
 		createScreen(frame);
 	}
 
