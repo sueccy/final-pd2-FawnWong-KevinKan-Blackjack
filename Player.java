@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Player {
-	protected Hand hand;
+	protected Hand hand;	
 	protected int moneyTotal;
 	protected int currentBet;
 	protected Boolean bust;
@@ -14,11 +14,18 @@ public class Player {
 		bust = false;
 	}
 
-	public void hit() {
-
+	public void hit(Card c) {
+		if (hand.size() <=5) {
+			c.isDealt = true;
+			hand.cards.add(c);
+		}
+		else {
+			stand();
+		}
 	}
 
 	public void stand(){
+		bust = false;
 	}
 
 

@@ -24,16 +24,18 @@ public class BlackJackGui extends JPanel implements ActionListener{
   	protected BufferedImage deckSpriteSheet;
   	protected BufferedImage[][] deck;
   	protected JLabel[] backs = new JLabel[10]; //because swing components can't be reused...
+	Random r = new Random();
 
 	public void actionPerformed(ActionEvent e){ 
 		if (e.getSource() == dealButton){
 			center.remove(dealButton);
-			hitButton.addActionListener(this);
-			stayButton.addActionListener(this);
 			userCards.removeAll();
 			game.deal();
 			cPane.validate();
 			cPane.repaint();
+			hitButton.addActionListener(this);
+			stayButton.addActionListener(this);
+			
 		}
 		if (e.getSource() == hitButton){
 			game.userHit();

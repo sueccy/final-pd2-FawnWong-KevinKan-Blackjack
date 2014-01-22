@@ -4,6 +4,7 @@ import java.util.*;
 public class Game {
 
 	protected Card[][] deck = new Card[4][13];
+	
 	protected Player user = new Player(), leftPlayer = new Player(), rightPlayer = new Player(), dealer = new Player();
 	protected BlackJackGui gui;
 
@@ -59,8 +60,8 @@ public class Game {
     }
 
     public Card getRandomCard() {
-		Random r = new Random();
-		int[] retArr = new int[2];
+	Random r = new Random();
+	int[] retArr = new int[2];
     	int row, col;
     	row = r.nextInt(4);
     	col = r.nextInt(13);
@@ -76,7 +77,11 @@ public class Game {
     }
 
     public void userHit() {
-    	user.hit();
+	Card c = getRandomCard();
+    	user.hit(c);
+	gui.addCardTo("user", c);
+	gui.cPane.validate();
+	gui.cPane.repaint();
     }
 
 }
