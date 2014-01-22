@@ -8,7 +8,9 @@ import javax.imageio.*;
 
 public class BlackJackGui extends JPanel implements ActionListener{
 	protected JFrame frame = new JFrame();
-    protected Container cPane = frame.getContentPane();
+	protected Game game;
+	protected Container cPane = frame.getContentPane();
+
 	protected JPanel center = new JPanel();
 	protected JPanel dealerCards = new JPanel(new GridBagLayout());
 	protected JPanel leftPlayerCards = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
@@ -29,25 +31,19 @@ public class BlackJackGui extends JPanel implements ActionListener{
 			hitButton.addActionListener(this);
 			stayButton.addActionListener(this);
 			userCards.removeAll();
-			userCards.add(getRandomCard());
-			userCards.add(getRandomCard());
-			rightPlayerCards.add(getRandomCard());
-			leftPlayerCards.add(getRandomCard());
-			dealerCards.add(getRandomCard());
+			game.deal();
 			cPane.validate();
 			cPane.repaint();
 		}
 		if (e.getSource() == hitButton){
-			userCards.add(getRandomCard());
-			dealerCards.add(getRandomCard());
-			rightPlayerCards.add(getRandomCard());
-			leftPlayerCards.add(getRandomCard());
+			game.userHit();
 			cPane.validate();
 			cPane.repaint();
 		}
 	}
 
-	public BlackJackGui() {
+	public BlackJackGui(Game g) {
+		game = g;
 		createScreen(frame);
 	}
 
@@ -93,8 +89,6 @@ public class BlackJackGui extends JPanel implements ActionListener{
 		c.gridy = 1;
 		userPanel.add(userCards, c);
 
-
-
         c.anchor = GridBagConstraints.CENTER;
         c.weightx = 1;c.gridwidth = 4;
         c.gridx = 0;c.gridy = 0;
@@ -135,7 +129,7 @@ public class BlackJackGui extends JPanel implements ActionListener{
 			deck = new BufferedImage[4][13];
 			for (int i = 0; i < 4; i++)  {  
 	            for (int j = 0; j < 13; j++)  {  
-	                deck[i][j] = deckSpriteSheet.getSubimage(j * 155, i * 225, 155, 225);  
+	                deck[i][j] = deckSpriteSheet.getSubimage(j * 135, i * 196, 135, 196);  
 	            }  
 	        }  
 	    }
@@ -144,5 +138,20 @@ public class BlackJackGui extends JPanel implements ActionListener{
 	    for (int i = 0; i < backs.length; i++) {
 	    	backs[i] = getCardBack();
 	    }
+	}
+
+	public void addCardTo(String s, Card c) {
+		if (s == "user") {
+			userCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+		}
+		else if (s == "left") {
+			leftPlayerCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+		}
+		else if (s == "right") {
+			rightPlayerCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+		}
+		else if (s == "dealer") {
+			dealerCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+		}
 	}
 }
