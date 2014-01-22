@@ -34,7 +34,7 @@ public class BlackJackGui extends JPanel implements ActionListener{
 			rightPlayerCards.add(getRandomCard());
 			leftPlayerCards.add(getRandomCard());
 			dealerCards.add(getRandomCard());
-			cPane.revalidate();
+			cPane.validate();
 			cPane.repaint();
 		}
 		if (e.getSource() == hitButton){
@@ -42,7 +42,7 @@ public class BlackJackGui extends JPanel implements ActionListener{
 			dealerCards.add(getRandomCard());
 			rightPlayerCards.add(getRandomCard());
 			leftPlayerCards.add(getRandomCard());
-			cPane.revalidate();
+			cPane.validate();
 			cPane.repaint();
 		}
 	}
@@ -93,8 +93,6 @@ public class BlackJackGui extends JPanel implements ActionListener{
 		c.gridy = 1;
 		userPanel.add(userCards, c);
 
-
-
         c.anchor = GridBagConstraints.CENTER;
         c.weightx = 1;c.gridwidth = 4;
         c.gridx = 0;c.gridy = 0;
@@ -135,7 +133,7 @@ public class BlackJackGui extends JPanel implements ActionListener{
 			deck = new BufferedImage[4][13];
 			for (int i = 0; i < 4; i++)  {  
 	            for (int j = 0; j < 13; j++)  {  
-	                deck[i][j] = deckSpriteSheet.getSubimage(j * 155, i * 225, 155, 225);  
+	                deck[i][j] = deckSpriteSheet.getSubimage(j * 135, i * 196, 135, 196);  
 	            }  
 	        }  
 	    }
