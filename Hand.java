@@ -2,8 +2,12 @@ import java.io.*;
 import java.util.*;
 
 public class Hand{
-    private ArrayList<Card> cards = new ArrayList<Card>();
-    private int ptTotal;
+    protected ArrayList<Card> cards;
+    protected int ptTotal = 0;
+
+    public Hand() {
+    	cards = new ArrayList<Card>();
+    }
     
     public void updatePtTotal(){
     	ptTotal = 0;

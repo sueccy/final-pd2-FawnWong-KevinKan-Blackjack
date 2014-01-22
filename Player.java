@@ -8,11 +8,14 @@ public class Player {
 	protected Boolean bust;
 
 	public Player() {
-
+		hand = new Hand();
+		moneyTotal = 1000;
+		currentBet = 0;
+		bust = false;
 	}
 
 	public void hit() {
-		
+
 	}
 
 	public void stand(){

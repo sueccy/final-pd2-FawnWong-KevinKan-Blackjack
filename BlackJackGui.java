@@ -30,19 +30,12 @@ public class BlackJackGui extends JPanel implements ActionListener{
 			hitButton.addActionListener(this);
 			stayButton.addActionListener(this);
 			userCards.removeAll();
-			userCards.add(getRandomCard());
-			userCards.add(getRandomCard());
-			rightPlayerCards.add(getRandomCard());
-			leftPlayerCards.add(getRandomCard());
-			dealerCards.add(getRandomCard());
+			game.deal();
 			cPane.validate();
 			cPane.repaint();
 		}
 		if (e.getSource() == hitButton){
-			userCards.add(getRandomCard());
-			dealerCards.add(getRandomCard());
-			rightPlayerCards.add(getRandomCard());
-			leftPlayerCards.add(getRandomCard());
+			game.userHit();
 			cPane.validate();
 			cPane.repaint();
 		}
@@ -144,5 +137,20 @@ public class BlackJackGui extends JPanel implements ActionListener{
 	    for (int i = 0; i < backs.length; i++) {
 	    	backs[i] = getCardBack();
 	    }
+	}
+
+	public void addCardTo(String s, Card c) {
+		if (s == "user") {
+			userCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+		}
+		else if (s == "left") {
+			leftPlayerCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+		}
+		else if (s == "right") {
+			rightPlayerCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+		}
+		else if (s == "dealer") {
+			dealerCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+		}
 	}
 }
