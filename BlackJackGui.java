@@ -32,8 +32,7 @@ public class BlackJackGui extends JPanel implements ActionListener{
 			userCards.removeAll();
 			game.deal();
 			cPane.validate();
-			cPane.repaint();
-			System.out.println("HI PLEASE WORK");
+			cPane.repaint();			
 			game.leftPlayer.play(game.deck, game);
 			game.addListeners();			
 		}
@@ -151,15 +150,25 @@ public class BlackJackGui extends JPanel implements ActionListener{
 	public void addCardTo(String s, Card c) {
 		if (s == "user") {
 			userCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+			userCards.validate();
+			userCards.repaint();
 		}
 		else if (s == "left") {
 			leftPlayerCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+			leftPlayerCards.validate();
+			leftPlayerCards.repaint();
 		}
 		else if (s == "right") {
 			rightPlayerCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+			rightPlayerCards.validate();
+			rightPlayerCards.repaint();
 		}
 		else if (s == "dealer") {
 			dealerCards.add(new JLabel(new ImageIcon(deck[c.suit][c.col])));
+			dealerCards.validate();
+			dealerCards.repaint();
 		}
+		cPane.validate();
+		cPane.repaint();
 	}
 }

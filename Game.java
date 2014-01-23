@@ -32,7 +32,8 @@ public class Game {
 
 	    }
 	    gui.leftPlayerCards.removeAll();
-	    gui.leftPlayerCards.add(gui.backs[9]);
+	    //gui.leftPlayerCards.add(gui.backs[9]);
+	gui.addCardTo("left", leftPlayer.hand.cards.get(0));
 	    gui.addCardTo("left", leftPlayer.hand.cards.get(1));
 
 	    for (int i = 0; i < 2; i++) {
@@ -62,7 +63,7 @@ public class Game {
 
     public void addListeners() {
     	gui.hitButton.addActionListener(gui);
-		gui.stayButton.addActionListener(gui);
+	gui.stayButton.addActionListener(gui);
     }
 
     public void removeListeners() {

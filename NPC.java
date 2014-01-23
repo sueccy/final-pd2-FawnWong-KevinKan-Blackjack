@@ -13,10 +13,13 @@ public class NPC extends Player {
 	public void play(Card[][] d, Game g) {
 		System.out.println("HI");
 		while (!bust) {
-			if (decide()) {				
-				g.gui.addCardTo(name, hit(d));
+			if (decide()) {	
+			    System.out.println("HI PLEASE PAUS");
+			    //pause();			
+			    g.gui.addCardTo(name, hit(d));
 			}
 		}
+		stand();
 	}
 	
 	public Boolean decide() {
@@ -31,11 +34,10 @@ public class NPC extends Player {
 
     public void pause() {
     	Random r = new Random();
-    	int i = r.nextInt(3) + 2;
+    	int i = r.nextInt(3);
 		try {
-		    Thread.sleep(i * 1000);
-		} catch(InterruptedException ex) {
-		    Thread.currentThread().interrupt();
+		    Thread.sleep(i * 10);
+		} catch(Exception e) {
 		}
 
     }

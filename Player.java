@@ -19,6 +19,7 @@ public class Player {
 		Card c = getRandomCard(d);
 		if (hand.cards.size() < 5) {
 			c.isDealt = true;
+  	//System.out.println("HI PLEASE WORK");
 			hand.cards.add(c);
 			hand.updatePtTotal();
 		}
