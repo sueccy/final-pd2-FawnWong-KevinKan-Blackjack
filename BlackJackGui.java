@@ -33,7 +33,9 @@ public class BlackJackGui extends JPanel implements ActionListener{
 			game.deal();
 			cPane.validate();
 			cPane.repaint();
-			
+			System.out.println("HI PLEASE WORK");
+			game.leftPlayer.play(game.deck, g);
+			game.addListeners();			
 		}
 		if (e.getSource() == hitButton){
 			game.userHit();
@@ -43,7 +45,6 @@ public class BlackJackGui extends JPanel implements ActionListener{
 				game.removeListeners();
 			}
 		}
-
 		if (e.getSource() == stayButton){
 			game.user.stand();
 		}

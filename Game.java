@@ -15,7 +15,6 @@ public class Game {
     /*
     gives out the cards AKA creates hands and distributes to the players
     calls on gui to add the cards to the gui
-    inserts 1 to slots in the deck that have already been dealt
     */
     public void deal(){    
     	Card r;
