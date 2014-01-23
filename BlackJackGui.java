@@ -33,14 +33,19 @@ public class BlackJackGui extends JPanel implements ActionListener{
 			game.deal();
 			cPane.validate();
 			cPane.repaint();
-			hitButton.addActionListener(this);
-			stayButton.addActionListener(this);
 			
 		}
 		if (e.getSource() == hitButton){
 			game.userHit();
 			cPane.validate();
 			cPane.repaint();
+			if (game.user.bust) {
+				game.removeListeners();
+			}
+		}
+
+		if (e.getSource() == stayButton){
+			game.user.stand();
 		}
 	}
 
