@@ -14,9 +14,11 @@ public class NPC extends Player {
 		System.out.println("HI");
 		while (!bust) {
 			if (decide()) {	
-			    System.out.println("HI PLEASE PAUS");
-			    //pause();			
+			    pause();
+			    System.out.println("HELLOOOOOO");
 			    g.gui.addCardTo(name, hit(d));
+			    g.gui.cPane.validate();
+			    g.gui.cPane.repaint();
 			}
 		}
 		stand();
@@ -33,12 +35,11 @@ public class NPC extends Player {
 	}
 
     public void pause() {
-    	Random r = new Random();
-    	int i = r.nextInt(3);
-		try {
-		    Thread.sleep(i * 10);
-		} catch(Exception e) {
-		}
-
+	Random r = new Random();
+	int i = r.nextInt(3);
+	long ms = (long)i * 1000;
+	long dieTime = System.currentTimeMillis() + ms;
+	while (System.currentTimeMillis() < dieTime) {
+	}
     }
 }
