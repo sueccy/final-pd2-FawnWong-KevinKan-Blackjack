@@ -1,5 +1,7 @@
 import java.io.*;
 import java.util.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class NPC extends Player {
 
@@ -14,12 +16,12 @@ public class NPC extends Player {
 		System.out.println("HI");
 		while (!bust) {
 			if (decide()) {	
-			    pause();
 			    System.out.println("HELLOOOOOO");
 			    g.gui.addCardTo(name, hit(d));
-			    g.gui.cPane.validate();
-			    g.gui.cPane.repaint();
+				//pause();
 			}
+			else 
+				stand();
 		}
 		stand();
 	}
@@ -36,8 +38,8 @@ public class NPC extends Player {
 
     public void pause() {
 	Random r = new Random();
-	int i = r.nextInt(3);
-	long ms = (long)i * 1000;
+	int i = r.nextInt(3) * 500;
+	long ms = (long)i;
 	long dieTime = System.currentTimeMillis() + ms;
 	while (System.currentTimeMillis() < dieTime) {
 	}

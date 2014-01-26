@@ -21,7 +21,6 @@ public class Game {
 
     	for (int i = 0; i < 2; i++) {
 	    	user.hit(deck);
-
 	    }
 	    gui.userCards.removeAll();
 	    gui.addCardTo("user", user.hand.cards.get(0));
@@ -32,8 +31,7 @@ public class Game {
 
 	    }
 	    gui.leftPlayerCards.removeAll();
-	    //gui.leftPlayerCards.add(gui.backs[9]);
-	gui.addCardTo("left", leftPlayer.hand.cards.get(0));
+	    gui.leftPlayerCards.add(gui.backs[9]);
 	    gui.addCardTo("left", leftPlayer.hand.cards.get(1));
 
 	    for (int i = 0; i < 2; i++) {
@@ -57,8 +55,6 @@ public class Game {
     	Hand h = user.hand;
 	    user.hit(deck);
 		gui.addCardTo("user", h.cards.get(h.cards.size() - 1));
-		gui.cPane.validate();
-		gui.cPane.repaint();
     }
 
     public void addListeners() {
@@ -79,5 +75,12 @@ public class Game {
 			}
 		}
 		return deck;
+    }
+
+    public void dealerFlip() {
+    	gui.dealerCards.removeAll();
+    	for (int i = 0; i < dealer.hand.cards.size(); i ++) {
+    		gui.addCardTo("dealer", dealer.hand.cards.get(i));
+    	}
     }
 }
