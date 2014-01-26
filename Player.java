@@ -25,7 +25,7 @@ public class Player {
 		else {
 			stand();
 		}
-		if (!(hand.underOrEqual21())){
+		if (hand.ptTotal > 21){
 			stand();
 		}
 		return c;

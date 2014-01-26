@@ -13,12 +13,9 @@ public class NPC extends Player {
 		bust = false;
 	}
 	public void play(Card[][] d, Game g) {
-		System.out.println("HI");
 		while (!bust) {
 			if (decide()) {	
-			    System.out.println("HELLOOOOOO");
 			    g.gui.addCardTo(name, hit(d));
-				//pause();
 			}
 			else 
 				stand();

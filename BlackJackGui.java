@@ -10,7 +10,6 @@ public class BlackJackGui extends JPanel implements ActionListener{
 	protected JFrame frame = new JFrame();
 	protected Game game;
 	protected Container cPane = frame.getContentPane();
-
 	protected JPanel center = new JPanel();
 	protected JPanel dealerCards = new JPanel(new GridBagLayout());
 	protected JPanel leftPlayerCards = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
@@ -29,26 +28,17 @@ public class BlackJackGui extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e){ 
 		if (e.getSource() == dealButton){
 			center.remove(dealButton);
-			userCards.removeAll();
-			game.deal();
-			cPane.validate();
-			cPane.repaint();			
-			game.leftPlayer.play(game.deck, game);
-			game.addListeners();			
+			game.startGame();		
 		}
 		if (e.getSource() == hitButton){
 			game.userHit();
 			cPane.validate();
 			cPane.repaint();
-			if (game.user.bust) {
-				game.removeListeners();
-				game.rightPlayer.play(game.deck, game);
-				game.dealer.play(game.deck, game);
-				game.dealerFlip();
-			}
+			game.checkBust();
 		}
 		if (e.getSource() == stayButton){
 			game.user.stand();
+			game.checkBust();
 		}
 	}
 
@@ -116,15 +106,8 @@ public class BlackJackGui extends JPanel implements ActionListener{
         c.gridy = 2;
         frame.add(userPanel, c);
 	}
-	
-	public JLabel getRandomCard() {
-		Random r = new Random();
-		int row = r.nextInt(4);
-		int col = r.nextInt(13);
-		return new JLabel(new ImageIcon(deck[row][col]));
-	}
 
-	public JLabel getCardBack() {
+    public JLabel getCardBack() {
 		JLabel l = new JLabel();
 		try {
 			l = new JLabel(new ImageIcon(ImageIO.read(new File("back.png"))));
@@ -166,4 +149,5 @@ public class BlackJackGui extends JPanel implements ActionListener{
 		cPane.revalidate();
 		cPane.repaint();
 	}
+
 }

@@ -25,7 +25,4 @@ public class Hand{
 		}
     }
 
-    public Boolean underOrEqual21() {
-    	return ptTotal <= 21;
-    }
 }
