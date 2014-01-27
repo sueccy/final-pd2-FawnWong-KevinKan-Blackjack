@@ -2,7 +2,7 @@ The Game of Blackjack
 =====================
 by Fawn Wong and Kevin Kan (Period 2)
 
-This is Blackjack! 
+This is Blackjack!
 Simply put, this is a game against the dealer. The dealer deals each player two cards. One faced down, one faced up. 
 You start off with $1000. You must bet at least $50 to play. 
 If you win, you get your own bet back, and that same amount extra. If you lose, you lose the amount you bet. 
