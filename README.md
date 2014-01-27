@@ -16,12 +16,21 @@ When you "hit," you are asking for another random card out of the dealer's deck.
 When you "stand," you are telling the dealer you are done getting more cards, and he can move on to the next player. 
 Good luck!
 
+
 How to Start:
+
 1. Open up directory 
+
 2. javac *.java
+
 3. java Driver
+
 4. Click 'Deal' to begin the game. 
+
 5. Get Money
+
+
+For more information, See http://en.wikipedia.org/wiki/Blackjack
 
 
 
