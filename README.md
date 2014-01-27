@@ -13,7 +13,7 @@ The dealer will begin the game by dealing each player two cards. One faced down,
 You start the game with $1000. You must bet at least $50 to play. 
 If you win, you get your own bet back, and that same amount extra. If you lose, you lose the amount you bet. 
 
-The objective of the game is to get a point total of 21. Each card has its own point value. 
+The objective of the game is to get the point total of your cards as close as you can to 21. Each card has its own point value. 
 A are worth 1 or 11. 2-10 are worth exactly what the card says. J, Q, K are all worth 10. 
 
 During your turn, you have the options to "hit" or "stand". 
