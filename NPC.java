@@ -24,13 +24,13 @@ public class NPC extends Player {
 	}
 	
 	public Boolean decide() {
-		int to21 = 21 - hand.ptTotal;
-		Random r = new Random();
-		if (to21 == 0) 
-			return false;
-		else if (to21 >= 10) 
+		if (name == "dealer" && hand.ptTotal < 17) 
 			return true;
-		return r.nextInt(9) + 1 <= to21;
+		else if (hand.ptTotal >= 15) 
+			return false;
+		else if (hand.ptTotal <= 14) 
+			return true;
+		return true;
 	}
 
     public void pause() {

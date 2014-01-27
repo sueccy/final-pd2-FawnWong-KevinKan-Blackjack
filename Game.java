@@ -46,6 +46,10 @@ public class Game {
     	deal();
 		gui.cPane.validate();
 		gui.cPane.repaint();
+		if (user.moneyTotal == 0){
+			JOptionPane.showMessageDialog(null, "You have no more money!", "BANKRUPT", JOptionPane.PLAIN_MESSAGE);
+			System.exit(0);
+		}
 		String s = "You have " + user.moneyTotal + " dollars\nEnter your bet: ";
 		int bet = getBet(s, 50, user.moneyTotal);
 		user.currentBet = bet;
@@ -103,6 +107,10 @@ public class Game {
 			if (playAgain == 0) {
 				newHandsAndDeck();
 				startGame();
+				user.bust = false;
+				rightPlayer.bust = false;
+				leftPlayer.bust = false;
+				dealer.bust = false;
 			}
 			else 
 				System.exit(0);
@@ -149,13 +157,7 @@ public class Game {
     		gui.addCardTo("right", rightPlayer.hand.cards.get(i));
     	}
 
-    	Boolean userWin;
-    	if (user.hand.ptTotal >= 21 && dealer.hand.ptTotal >= 21) 
-    		userWin = false;
-    	else 
-    		userWin = user.hand.ptTotal <= 21 && dealer.hand.ptTotal < user.hand.ptTotal;
-
-		if (userWin) {
+		if (userWin()) {
 			JOptionPane.showMessageDialog(null, "You win!", null, JOptionPane.PLAIN_MESSAGE);
 			user.moneyTotal += user.currentBet;
 		}
@@ -167,6 +169,17 @@ public class Game {
 
 	public void message(String s) {
 		JOptionPane.showMessageDialog(null, s, null, JOptionPane.PLAIN_MESSAGE);
+	}
+
+	public Boolean userWin() {	
+    	Boolean win;
+    	if (user.bust)
+    		win = false;
+    	else if (dealer.bust)
+    		win = true;
+    	else 
+    		win = user.hand.ptTotal <= 21 && dealer.hand.ptTotal < user.hand.ptTotal;
+    	return win;
 	}
 
 }
