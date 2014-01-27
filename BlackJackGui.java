@@ -58,6 +58,7 @@ public class BlackJackGui extends JPanel implements ActionListener{
 		cPane.setBackground(new Color(52,99,13));
 		cPane.setLayout(new GridBagLayout());
 		frame.setExtendedState(Frame.MAXIMIZED_BOTH); 
+		frame.setTitle("BlackJack");
 		frame.setVisible(true);
 		frame.setResizable(false);
 
