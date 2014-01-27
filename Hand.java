@@ -7,7 +7,6 @@ public class Hand{
 
     public Hand() {
     	cards = new ArrayList<Card>();
-
     }
     
     public void updatePtTotal(){
