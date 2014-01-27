@@ -4,9 +4,9 @@ by Fawn Wong and Kevin Kan (Period 2)
 
 This is Blackjack!
 
-Simply put, this is a game against the dealer. When you begin your game, the dealer is at the top of the screen. 
+Simply put, this is a game against the dealer. When you begin your game, the dealer is at the top of the screen. You are at the bottom. 
 
-You are at the bottom. The order goes like this: Player on the left, You, Player on the right, and finally the Dealer.
+The order goes like this: Player on the left, You, Player on the right, and finally the Dealer.
 
 The dealer will begin the game by dealing each player two cards. One faced down, one faced up. 
 
