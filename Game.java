@@ -173,9 +173,9 @@ public class Game {
 
 	public Boolean userWin() {	
     	Boolean win;
-    	if (user.bust)
+    	if (user.hand.ptTotal > 21)
     		win = false;
-    	else if (dealer.bust)
+    	else if (dealer.hand.ptTotal > 21)
     		win = true;
     	else 
     		win = user.hand.ptTotal <= 21 && dealer.hand.ptTotal < user.hand.ptTotal;
