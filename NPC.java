@@ -26,9 +26,9 @@ public class NPC extends Player {
 	public Boolean decide() {
 		if (name == "dealer" && hand.ptTotal < 17) 
 			return true;
-		else if (hand.ptTotal >= 15) 
+		else if (hand.ptTotal >= 16) 
 			return false;
-		else if (hand.ptTotal <= 14) 
+		else if (hand.ptTotal <= 15) 
 			return true;
 		return true;
 	}
